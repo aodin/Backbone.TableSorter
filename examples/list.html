@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <title>Backbone.js Sandbox</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../lib/bootstrap.css">
+  </head>
+  <body>
+    <div id="main" role="main" class="container">
+      <div class="row">
+        <div class="span8">
+          <ul>
+            <li>Nevada</li>
+            <li>Oregon</li>
+            <li>california</li>
+            <li>Connecticut</li>
+            <li>Alabama</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="../lib/jquery-1.9.1.js"></script>
+    <script src="../lib/underscore-1.4.4.js"></script>
+    <script src="../lib/backbone-1.0.0.js"></script>
+    <script src="../backbone.tablesorter.js"></script>
+    <script>
+$(function() {
+  var ListSorter = TableSorter.Sort.extend({
+    setBody: function() {
+      this.$body = this.$el;
+    },
+    parseTable: function() {
+      // TODO either return the collection?
+      return _.map(this.$('li'), this.parseRow, this);
+    },
+    parseRow: function(row) {
+      // Turn the given tr element in an array of values
+      // TODO native selectors for speed
+      return {
+        html: row,
+        cells: [row.textContent || row.innerText],
+      };
+    },
+  });
+
+  new ListSorter({el: 'ul'});
+});
+    </script>
+  </body>
+</html>

@@ -1,0 +1,27 @@
+table th {
+    cursor: pointer;
+}
+
+table th:hover {
+}
+
+table th.active {
+    color: #008fd5;
+}
+
+table th:after {
+    content: "";
+    padding-left: 10px;
+}
+
+table th.desc:after {
+    /*content: "&#x25BC;";*/
+    content: "▼";
+    padding-left: 5px;
+}
+
+table th.asc:after {
+    /*content: "&#x25B2;";*/
+    content: "▲";
+    padding-left: 5px;
+}
