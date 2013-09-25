@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <title>TableSorter | Data Value</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../lib/bootstrap.css">
+  </head>
+  <body>
+    <div id="main" role="main" class="container">
+      <div class="row">
+        <div class="col-md-8">
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Day</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>A</td>
+                <td data-value="1">Monday</td>
+              </tr>
+              <tr>
+                <td>B</td>
+                <td data-value="2">Tuesday</td>
+              </tr>
+              <tr>
+                <td>C</td>
+                <td data-value="5">Friday</td>
+              </tr>
+              <tr>
+                <td>D</td>
+                <td data-value="4">Thursday</td>
+              </tr>
+              <tr>
+                <td>E</td>
+                <td data-value="3">Wednesday</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="../lib/jquery-1.10.2.js"></script>
+    <script src="../lib/underscore-1.5.2.js"></script>
+    <script src="../lib/backbone-1.0.0.js"></script>
+    <script src="../backbone.tablesorter.js"></script>
+    <script>
+$(function() {
+  new TableSorter.Sort({el: 'table'});
+});
+    </script>
+  </body>
+</html>

@@ -149,7 +149,7 @@
       // Turn the given td element into a sortable "value"
       // return $(cell).text();
       // Native selector
-      return el.textContent || el.innerText;
+      return el.hasAttribute('data-value') ? el.getAttribute('data-value') : el.textContent || el.innerText;
     },
   });
 
