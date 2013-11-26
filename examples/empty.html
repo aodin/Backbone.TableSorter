@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <title>Tablesorter | Empty</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="../lib/bootstrap.css">
+  </head>
+  <body>
+    <div id="main" role="main" class="container">
+      <div class="row">
+        <div id="content" class="col-md-8">
+
+        </div>
+      </div>
+    </div>
+
+    <script src="../lib/jquery-1.10.2.js"></script>
+    <script src="../lib/underscore-1.5.2.js"></script>
+    <script src="../lib/backbone-1.1.0.min.js"></script>
+    <script src="../backbone.tablesorter.js"></script>
+    <script>
+$(function() {
+  var ts = new Backbone.TableSorter();
+  // TODO Allow the tag to be set, which specifies the child tag?
+  ts.setHeader(['Name', 'Birthday', 'Age']); // Optional, such as in the case of a list
+  // TODO inspect types, manually specify types?
+  // Expose the collection methods to root?
+  ts.addRow(['A', '2008-11-03', 5]);
+  ts.addRow(['b', '1990-04-20', 23]);
+
+  ts.collection.sort();
+  ts.render();
+
+  $('#content').html(ts.el);
+});
+
+    </script>
+  </body>
+</html>

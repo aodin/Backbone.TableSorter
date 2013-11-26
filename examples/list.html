@@ -26,11 +26,11 @@
 
     <script src="../lib/jquery-1.10.2.js"></script>
     <script src="../lib/underscore-1.5.2.js"></script>
-    <script src="../lib/backbone-1.0.0.js"></script>
+    <script src="../lib/backbone-1.1.0.min.js"></script>
     <script src="../backbone.tablesorter.js"></script>
     <script>
 $(function() {
-  var ListSorter = TableSorter.Sort.extend({
+  var ListSorter = Backbone.TableSorter.extend({
     setBody: function() {
       this.$body = this.$el;
     },
@@ -47,8 +47,9 @@ $(function() {
       };
     },
   });
-
-  new ListSorter({el: 'ul'});
+  // Default sort order is ascending, this will tell
+  var ls = new ListSorter('ul');
+  console.log(_.pluck(ls.formats(), 'name'));
 });
     </script>
   </body>
